@@ -4,13 +4,46 @@ import {HashRouter as Router,Switch,Route,Link,Redirect} from 'react-router-dom'
 import Statistics from './views/Statistics';
 import Tags from './views/Tags';
 import NoMatch from './views/NoMatch';
+import styled from 'styled-components';
+const AppWrapper=styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+
+`
+const NavUl=styled.ul`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  
+`
 function App() {
   return (
-    <div className="App">
+    <AppWrapper className="App">
       <Router>
+        <Switch>
+          <Route exact path="/money">
+            <Money />
+          </Route>
+          <Route exact path="/tags">
+            <Tags />
+          </Route>
+          <Route exact path="/statistics">
+            <Statistics />
+          </Route>
+          <Redirect exact from="/" to="/money">
+            <Money />
+          </Redirect>
+          <Route path="*">
+            <NoMatch/>
+          </Route>
+        </Switch>
+
         <div>
-          <nav>
-            <ul>
+          <NavUl>
               <li>
                 <Link to="/tags">标签</Link>
               </li>
@@ -20,29 +53,10 @@ function App() {
               <li>
                 <Link to="/statistics">统计</Link>
               </li>
-            </ul>
-          </nav>
-
-          <Switch>
-            <Route exact path="/money">
-              <Money />
-            </Route>
-            <Route exact path="/tags">
-              <Tags />
-            </Route>
-            <Route exact path="/statistics">
-              <Statistics />
-            </Route>
-            <Redirect exact from="/" to="/money">
-              <Money />
-            </Redirect>
-            <Route path="*">
-              <NoMatch/>
-            </Route>
-          </Switch>
+          </NavUl>
         </div>
       </Router>
-    </div>
+    </AppWrapper>
   );
 }
 
