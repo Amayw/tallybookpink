@@ -13,34 +13,40 @@ const AppWrapper=styled.div`
   overflow: hidden;
 
 `
+const Main=styled.main`
+  flex-grow: 1;
+  overflow: auto;
+`
 const NavUl=styled.ul`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  
+  justify-content: space-around;
+  padding: 16px;
 `
 function App() {
   return (
     <AppWrapper className="App">
       <Router>
-        <Switch>
-          <Route exact path="/money">
-            <Money />
-          </Route>
-          <Route exact path="/tags">
-            <Tags />
-          </Route>
-          <Route exact path="/statistics">
-            <Statistics />
-          </Route>
-          <Redirect exact from="/" to="/money">
-            <Money />
-          </Redirect>
-          <Route path="*">
-            <NoMatch/>
-          </Route>
-        </Switch>
+        <Main>
+          <Switch>
+            <Route exact path="/money">
+              <Money />
+            </Route>
+            <Route exact path="/tags">
+              <Tags />
+            </Route>
+            <Route exact path="/statistics">
+              <Statistics />
+            </Route>
+            <Redirect exact from="/" to="/money">
+              <Money />
+            </Redirect>
+            <Route path="*">
+              <NoMatch/>
+            </Route>
+          </Switch>
+        </Main>
 
         <div>
           <NavUl>
