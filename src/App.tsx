@@ -1,8 +1,9 @@
 import React from 'react';
 import Money from 'views/Money'
-import {HashRouter as Router,Switch,Route,Link} from 'react-router-dom'
+import {HashRouter as Router,Switch,Route,Link,Redirect} from 'react-router-dom'
 import Statistics from './views/Statistics';
 import Tags from './views/Tags';
+import NoMatch from './views/NoMatch';
 function App() {
   return (
     <div className="App">
@@ -11,29 +12,32 @@ function App() {
           <nav>
             <ul>
               <li>
-                <Link to="/money">money</Link>
+                <Link to="/tags">标签</Link>
               </li>
               <li>
-                <Link to="/tags">tags</Link>
+                <Link to="/money">记账</Link>
               </li>
               <li>
-                <Link to="/statistics">statictis</Link>
+                <Link to="/statistics">统计</Link>
               </li>
             </ul>
           </nav>
 
           <Switch>
-            <Route path="/money">
+            <Route exact path="/money">
               <Money />
             </Route>
-            <Route path="/tags">
+            <Route exact path="/tags">
               <Tags />
             </Route>
-            <Route path="/statistics">
+            <Route exact path="/statistics">
               <Statistics />
             </Route>
-            <Route path="/">
+            <Redirect exact from="/" to="/money">
               <Money />
+            </Redirect>
+            <Route path="*">
+              <NoMatch/>
             </Route>
           </Switch>
         </div>
