@@ -11,14 +11,16 @@ const NavWrapper=styled.nav`
     align-items: center;
     justify-content: space-around;
     >li{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 6px;
-      >.icon{
-        width: 26px;
-        height: 26px;
+      >a{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 6px;
+        >.icon{
+          width: 26px;
+          height: 26px;
+        }
       }
     }
   }
@@ -29,16 +31,13 @@ export default function Nav(){
     <NavWrapper>
       <ul>
         <li>
-          <Icon name='rtag'/>
-          <Link to="/tags">标签</Link>
+          <Link to="/tags"><Icon name='rtag'/>标签</Link>
         </li>
         <li>
-          <Icon name='rmoney'/>
-          <Link to="/money">记账</Link>
+          <Link to="/money"><Icon name='rmoney'/>记账</Link>
         </li>
         <li>
-          <Icon name='chart' />
-          <Link to="/statistics">统计</Link>
+          <Link to="/statistics"><Icon name='chart' />统计</Link>
         </li>
       </ul>
     </NavWrapper>

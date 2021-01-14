@@ -1,8 +1,3 @@
-import {HashRouter as Router, Redirect, Route, Switch} from 'react-router-dom';
-import Money from '../views/Money';
-import Tags from '../views/Tags';
-import Statistics from '../views/Statistics';
-import NoMatch from '../views/NoMatch';
 import Nav from './Nav';
 import React from 'react';
 import styled from 'styled-components';
@@ -20,32 +15,13 @@ const Main=styled.main`
   flex-grow: 1;
   overflow: auto;
 `
-export default function Layout(){
+export default function Layout(props:any){
   return (
     <LayoutWrapper>
-    <Router>
       <Main>
-        <Switch>
-          <Route exact path="/money">
-            <Money />
-          </Route>
-          <Route exact path="/tags">
-            <Tags />
-          </Route>
-          <Route exact path="/statistics">
-            <Statistics />
-          </Route>
-          <Redirect exact from="/" to="/money">
-            <Money />
-          </Redirect>
-          <Route path="*">
-            <NoMatch/>
-          </Route>
-        </Switch>
+        {props.children}
       </Main>
-
-      <Nav></Nav>
-    </Router>
+      <Nav/>
     </LayoutWrapper>
   )
 }

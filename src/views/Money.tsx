@@ -1,27 +1,12 @@
 import React from 'react'
-import styled from 'styled-components';
+import Layout from '../components/Layout';
+
 export default function Money(){
   return (
-    <div>money
-      money
-      money
-      <div>money
-        money
+    <Layout>
+      <div>
         money
       </div>
-      <div>money
-        money
-        money
-      </div>
-      <div>money
-        money
-        money
-      </div>
-      <div>money
-        money
-        money
-      </div>
-    </div>
-
+    </Layout>
   )
 }
