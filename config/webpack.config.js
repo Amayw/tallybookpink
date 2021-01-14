@@ -364,6 +364,19 @@ module.exports = function (webpackEnv) {
           // match the requirements. When no loader matches it will fall
           // back to the "file" loader at the end of the loader list.
           oneOf: [
+            {
+              test: /\.svg$/,
+              use: [
+                { loader: 'svg-sprite-loader', options: {} },
+                { loader: 'svgo-loader', options: {
+                    // plugins:[
+                    //加载时删除svg默认fill填充色
+                    //   {removeAttrs:{attrs: 'fill'}}
+                    //  ]
+                  }}
+              ]
+            },
+
             // TODO: Merge this config once `image/avif` is in the mime-db
             // https://github.com/jshttp/mime-db
             {
@@ -531,6 +544,8 @@ module.exports = function (webpackEnv) {
                 'sass-loader'
               ),
             },
+
+
             // "file" loader makes sure those assets get served by WebpackDevServer.
             // When you `import` an asset, you get its (virtual) filename.
             // In production, they would get copied to the `build` folder.
