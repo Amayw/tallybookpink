@@ -9,7 +9,7 @@ const CategoryWrapper=styled.div`
   align-items: center;
   justify-content: center;
   >wired-button{
-    margin: 8px 20px;
+    margin: 12px 20px;
     &.active{
       background: #f7d26a;
     }

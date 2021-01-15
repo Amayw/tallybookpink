@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '../components/Layout';
 
-export default function Tags(){
+export default function Labels(){
   return(
     <Layout>
       <div>

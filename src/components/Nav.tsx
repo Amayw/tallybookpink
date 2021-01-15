@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import {Link, NavLink} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import React from 'react';
 import Icon from './Icon';
-
 
 const NavWrapper=styled.nav`
   >ul{
@@ -37,13 +36,13 @@ export default function Nav(){
     <NavWrapper>
       <ul>
         <li>
-          <NavLink activeClassName='is-active' to="/tags"><Icon name='rtag'/>标签</NavLink>
+          <NavLink activeClassName='is-active' to="/tags"><Icon name='icon-rtag'/>标签</NavLink>
         </li>
         <li>
-          <NavLink activeClassName='is-active' to="/money"><Icon name='rmoney'/>记账</NavLink>
+          <NavLink activeClassName='is-active' to="/money"><Icon name='icon-rmoney'/>记账</NavLink>
         </li>
         <li>
-          <NavLink activeClassName='is-active' to="/statistics"><Icon name='chart' />统计</NavLink>
+          <NavLink activeClassName='is-active' to="/statistics"><Icon name='icon-tongji' />统计</NavLink>
         </li>
       </ul>
     </NavWrapper>

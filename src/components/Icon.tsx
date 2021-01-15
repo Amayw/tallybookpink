@@ -7,7 +7,7 @@ type Props={
 const Icon=(props:Props)=>{
   return (
       <svg className="icon">
-        <use xlinkHref={'#icon-'+props.name}/>
+        <use xlinkHref={'#'+props.name}/>
       </svg>
   )
 }
